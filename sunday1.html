@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunday Service Pictures</title>
+  <link rel="shortcut icon" href="./unnamed.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-I0A3gEN..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./gallery.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="page-header">
+    <div class="overlay">
+      <h1>Sunday Service Gallery</h1>
+      <p>April 27, 2025 – Women's Sunday Service</p>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <div class="gallery-wrapper">
+      <button class="scroll-btn left" onclick="scrollGallery(-1)">&#10094;</button>
+      <div class="gallery-scroll" id="galleryScroll">
+       
+        <!-- Update alt texts to reflect actual image context -->
+        <img src="./IMG_20250427_093835.jpg" alt="27th April  Women Sunday service picture" onclick="openModal(this)" />
+        <img src="./IMG_20250427_101656.jpg" alt="27th April Women Sunday service picture" onclick="openModal(this)" />
+        <img src="./IMG_20250427_104809.jpg" alt="Drama Presentation" onclick="openModal(this)" />
+        <img src="./IMG_20250427_112410.jpg" alt="27th April Women Sunday service picture" onclick="openModal(this)" />
+        <img src="./IMG_20250427_112715.jpg" alt="27th April Women Sunday service picture" onclick="openModal(this)" />
+        <img src="./IMG_20250427_114609.jpg" alt="27th April Women Sunday service pictures" onclick="openModal(this)" />
+        <img src="./IMG_20250427_114729.jpg" alt="27th April Women Sunday service pictures" onclick="openModal(this)" />
+        <img src="./IMG_20250427_114740.jpg" alt="27th April Women Sunday service pictures" onclick="openModal(this)" />
+        <img src="./IMG_20250427_114913.jpg" alt="27th April Women Sunday service pictures" onclick="openModal(this)" />
+        <img src="./IMG_20250427_115012.jpg" alt="27th April Women Sunday service pictures" onclick="openModal(this)" />
+        <img src="./IMG_20250427_115259.jpg" alt="27th April Women Sunday service picturesYouth Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250427_115041 (1).jpg" alt="27th April Women Sunday service pictures" onclick="openModal(this)" />
+     
+
+      </div>
+      <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <a href="imageModal" download="imageModal"><img id="modalImage" src="" alt="Zoomed View"  ></a>
+      <p id="modalCaption" class="modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- Donate Section -->
+  <section id="donate" class="section">
+    <div class="container">
+      <h1 style="display: grid; place-items: center; text-align: center;" > <strong> Support Our Ministry</strong></h1>
+      <p class="xxcc" style="text-align: justify;">Your generous giving helps us grow and reach more people with the love of Christ.</p>
+     <div class="jnnnj" style="display: grid; place-items: center;"> <a href="./donate.html" class="btn"  style="margin-top: 1%;">Donate Now</a></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year">2025</span> GOFAMINT Royal Assembly. All rights reserved.</p>
+      <div class="social-icons">
+       <a href="https://www.facebook.com/share/1AeugBn3pF/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com/@gofamintroyal?si=fsVzHFy_cTHvpanU" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@gofamintroyal?_t=ZM-8wee3d0K56z&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function openModal(image) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const caption = document.getElementById("modalCaption");
+
+      modal.style.display = "block";
+      modalImg.src = image.src;
+      caption.textContent = image.alt;
+    }
+
+    function closeModal(event) {
+      if (event.target.id === "imageModal") {
+        document.getElementById("imageModal").style.display = "none";
+      }
+    }
+
+    function scrollGallery(direction) {
+      const gallery = document.getElementById('galleryScroll');
+      const scrollAmount = gallery.clientWidth * 0.6;
+      gallery.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

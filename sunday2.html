@@ -1,0 +1,110 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunday Service Pictures</title>
+  <link rel="shortcut icon" href="./unnamed.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-I0A3gEN..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./gallery.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="page-header">
+    <div class="overlay">
+      <h1>Sunday Service Gallery</h1>
+      <p>April 13, 2025 – A Blessed Day to Remember</p>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section id="gallery"  class="gallery">
+    <div class="gallery-wrapper">
+      <button class="scroll-btn left" onclick="scrollGallery(-1)">&#10094;</button>
+      <div class="gallery-scroll" id="galleryScroll">
+       
+        <!-- Update alt texts to reflect actual image context -->
+        <img src="./IMG_20250413_093241 (1).jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_095414.jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_095543 (1).jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_095917.jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_095935.jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_101823.jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_101947.jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_102520.jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_102816.jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+        <img src="./IMG_20250413_095543 (1).jpg" alt="13th April Sunday Service Picture" onclick="openModal(this)" />
+     
+
+      </div>
+      <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Zoomed View">
+      <p id="modalCaption" class="modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- Donate Section -->
+  <section id="donate" class="section">
+    <div class="container">
+      <h1 style="display: grid; place-items: center; text-align: center;"> <strong> Support Our Ministry</strong></h1>
+      <p class="xxcc"  style="text-align: justify;">Your generous giving helps us grow and reach more people with the love of Christ.</p>
+     <div class="jnnnj" style="display: grid; place-items: center;"> <a href="./donate.html" class="btn" style="margin-top: 1%;" >Donate Now</a></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year">2025</span> GOFAMINT Royal Assembly. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1AeugBn3pF/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com/@gofamintroyal?si=fsVzHFy_cTHvpanU" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@gofamintroyal?_t=ZM-8wee3d0K56z&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function openModal(image) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const caption = document.getElementById("modalCaption");
+
+      modal.style.display = "block";
+      modalImg.src = image.src;
+      caption.textContent = image.alt;
+    }
+
+    function closeModal(event) {
+      if (event.target.id === "imageModal") {
+        document.getElementById("imageModal").style.display = "none";
+      }
+    }
+
+    function scrollGallery(direction) {
+      const gallery = document.getElementById('galleryScroll');
+      const scrollAmount = gallery.clientWidth * 0.6;
+      gallery.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
